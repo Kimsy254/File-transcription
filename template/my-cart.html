@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+{% load upload_extras %}
+{% block content %}
+
+    {% if transcript_details %}
+
+        <div class="my-cart opening center">
+            <h3><b>Cart<b></h3>
+            <div class="opening-icon"></div>
+            <h4>Quick Reference</h4>
+            {% for detail in transcript_details %}
+                <a href="#{{ detail.id }}" class="btn btn-primary">Order {{ detail.id }}</a>
+            {% endfor %}
+        </div>
+
+        <div class="my-cart ticket">
+
+            {% for detail in transcript_details %}
+                <div class="my-cart box" id="{{ detail.id }}">
+                    <div class="my-cart id">
+                        <h3>Order {{ detail.id }}</h3>
+                    </div>
+                    <div class="my-cart main">
+                        <div class="my-cart left">
+                        <div class="my-cart left-details">
+                            <div>
+                                
+                                <p>{{ client.email }}</p>
+                            </div>
+                           
+                        </div>
+                            <h4 class="center">Files</h4>
+                            <div class="file-div">
+                                <div>
+                                    {% for file in detail.uploaded_files.all %}
+                                        <p>{{ file.file_name }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="my-cart right">
+                            <h3>Full Details</h3>
+
+                            <div class="my-cart right-details">
+                                <div class="space"></div>
+                                <div class="my-cart full-details">
+                                    <p><span>Time Length: </span>{{ detail.time_length }}</p>
+                                    <p><span>Number of Speakers: </span>{{ detail.number_of_speakers }}</p>
+                                    <p><span>Timestamps: </span>{{ detail.timestamps }}</p>
+                                    <p><span>Turn Around Time: </span>{{ detail.turn_around_time }}</p>
+                                    <p><span>Audio Quality: </span>{{ detail.audio_quality }}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-cart paypal">
+                        <h4><span>Total Cost: </span>${{ detail.total_price }}</h4>
+                        {{ detail.paypal_form.sandbox }}
+                    </div>
+					
+                </div>
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+    {% endif %}
+
+{% endblock %}

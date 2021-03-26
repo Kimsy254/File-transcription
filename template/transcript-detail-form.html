@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% load static %}
+{% block head_resources %}
+    <script src="{% static "js/script-transcript-details.js" %}"></script>
+{% endblock %}
+{% block content %} 
+
+
+
+    <div class="page-div">
+        <div class="container trans-det-1">
+            {% if uploads %}
+<div class="row">
+                <div class="detail-overview">
+                    <h1>A Quick Summarry of your Uploads<h1>
+                </div>
+
+                {% for upload in uploads %}
+                    <div class="col-sm-6 ">
+					<div class="box">
+                        <p><strong>File Name:</strong> {{ upload.file_name }}</p>
+                        <p><strong>Uploaded at:</strong> {{ upload.uploaded_at }}</p>
+                        <p><strong>File Length:</strong> {{ upload.file_length_mins }}mins</p>
+                        <p><strong>Status:</strong> {{ upload.status }}</p>
+						 <a class="btn btn-danger" href="{% url 'removefile' upload.id %}" onclick="return confirm('Are you sure you want to delete this item?');" style="float:right;">Delete File</a>
+                        
+                            
+                        <br>
+                        <hr>
+                    </div>
+					</div>
+                {% endfor %}
+				<div class="col-sm-6 ">
+        <div class="box">
+                <div class="detail-overview">
+                    <h3>Total Time: <span id="total-time">{{ total_time.file_length_mins__sum }}</span> mins</h3>
+					<h6>You can add more files if you wish</h6>
+					<div class="box" >
+                    
+                    <a class="btn btn-primary" href="{% url 'uploadfiles' %}">Add more files</a>
+					</div>
+                </div>
+</div>
+</div>  
+</div>
+
+
+
+
+
+
+
+
+                <!-- Transcription Detail Form -->
+                <div class=" transcription-detail-form">
+				<div class="box">
+                    <form id="TDForm" name="TDForm" role="form" method="post" action="{% url 'transcriptdetails' %}">
+                        <legend>Calculate Cost</legend>
+                        <br>
+                        {% csrf_token %}
+						
+						
+						
+
+                        <div class="row">
+                            <div class="col-sm-4 form-group">
+                                {{ form.time_length.label_tag }}
+                                <select name="time_length" class="form-control" id="time_length" onclick="calculateTotal()">
+                                    <option value="none">Select</option>
+                                    {% for id, name in form.time_length.field.choices %}
+                                        <option value="{{ id }}">{{ name }}</option>
+                                    {% endfor %}
+                                </select>
+                                {{ form.time_length.errors }}
+                            </div> 
+							
+							<div class="col-sm-4 form-group">
+                            <label for="minute-cost"><b style="color:blue;">Cost Per Minute</b></label>
+                            <p style="color:blue;">$<span id="minuteCost">0.00</span></p>
+                        </div>
+
+                        <div class="col-sm-4 form-group" id="total-cost">
+                            <label for="total-cost" ><strong style="color:red;">Total Cost</strong></label>
+                            <p style="color:red;">$<span id="totalCost">0.00</span></p>
+                            ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+                        </div>
+						
+							
+							
+							
+
+                            <div class="col-sm-4 form-group">
+                                {{ form.text_format.label_tag }}
+                                <select name="text_format" class="form-control" id="style" onclick="calculateTotal()">
+                                    <option value="none">Select</option>
+                                    {% for id, name in form.text_format.field.choices %}
+                                        <option value="{{ id }}">{{ name }}</option>
+                                    {% endfor %}
+                                </select>
+                                {{ form.text_format.errors }}
+                            </div>
+
+                            <div class="col-sm-4 form-group">
+                                {{ form.number_of_speakers.label_tag }}
+                                <select name="number_of_speakers" class="form-control" id="number_of_speakers"
+                                        onclick="calculateTotal()">
+                                    <option value="none">Select</option>
+                                    {% for id, name in form.number_of_speakers.field.choices %}
+                                        <option value="{{ id }}">{{ name }}</option>
+                                    {% endfor %}
+                                </select>
+                                {{ form.number_of_speakers.errors }}
+                            </div>
+
+                            <div class="col-sm-4 form-group">
+                                {{ form.timestamps.label_tag }}
+                                <select name="timestamps" class="form-control" id="timestamps"
+                                        onclick="calculateTotal()">
+                                    <option value="none">Select</option>
+                                    {% for id, name in form.timestamps.field.choices %}
+                                        <option value="{{ id }}">{{ name }}</option>
+                                    {% endfor %}
+                                </select>
+                                {{ form.timestamps.errors }}
+                            </div>
+
+                            <div class="col-sm-4 form-group">
+                                {{ form.turn_around_time.label_tag }}
+                                <select name="turn_around_time" class="form-control" id="turn_around_time" onclick="calculateTotal()">
+                                    <option value="none">Select</option>
+                                    {% for id, name in form.turn_around_time.field.choices %}
+                                        <option value="{{ id }}">{{ name }}</option>
+                                    {% endfor %}
+                                </select>
+                                {{ form.turn_around_time.errors }}
+                            </div>
+
+                            <div class="col-sm-4 form-group">
+                                {{ form.audio_quality.label_tag }}
+                                <select name="audio_quality" class="form-control" id="audio-quality"
+                                        onclick="calculateTotal()">
+                                    <option value="none">Select</option>
+                                    {% for id, name in form.audio_quality.field.choices %}
+                                        <option value="{{ id }}">{{ name }}</option>
+                                    {% endfor %}
+                                </select>
+                                {{ form.audio_quality.errors }}
+                            </div>
+
+
+                        <br>
+
+                        
+                        <div class="col-sm-4 form-group">
+						<br>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+						</div>
+                    </form>
+
+                </div>
+            {% else %}
+                <h1>You have not uploaded any file</h1>
+                <a class="btn btn-primary" href="{% url 'uploadfiles' %}">Click here to Upload</a>
+            {% endif %}
+    </div>
+	</div>
+    </div>
+
+{% endblock %}

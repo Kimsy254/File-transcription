@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% block content %}
+    <div class="upload-files">
+        <div class="container">
+            
+
+            <div class="legend-div">
+                <legend><h5>Upload your audio/video file(s)</h5></legend>
+            </div>
+
+            <div class="col-lg-6 offset-3">
+        <div class="box">
+                <form role="form" method="post" action="{% url 'uploadfiles' %}" enctype="multipart/form-data">
+
+
+                    {% csrf_token %}
+
+                    <h5></h5>
+
+                    <div>{{ form.file }}</div>
+
+                    <pp>
+                            <br>Supported File Types: M4A, MP3, WMV, MP4,WAV, MOV, AVI, VOB, AMR, WMA, OGG, and AIF.
+
+                    </p>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" id="submit-all">Upload and Proceed
+                        </button>
+                    </div>
+                </form>
+            </div>
+			</div>
+
+
+        </div>
+    </div>
+
+{% endblock %}
+

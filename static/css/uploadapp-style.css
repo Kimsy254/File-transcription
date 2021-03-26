@@ -1,0 +1,299 @@
+/* UPLOAD FILES */
+
+.steps {
+    border:2px solid black;
+    margin-bottom: 35px;
+    background-color: #a9d9e7;
+}
+
+.upload-files {
+    text-align:center;
+    background: url("../img/blue-clouds-day-fluffy-53594.jpeg") center;
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 25px;
+}
+
+#upload-form {
+    margin: auto;
+    width: 70.5vw;
+}
+
+#upload-form > * {
+    margin-bottom:50px;
+}
+
+#id_file {
+    margin:auto;
+}
+
+input[type=file] {
+    color:pink;
+}
+
+#submit-all {
+    margin-top:20px;
+}
+
+/*TRANSCRIPT DETAIL FORM */
+.detail-overview {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    width:100%;
+    background-color:lightblue;
+    padding-bottom:45px;
+}
+
+.detail-overview:nth-child(1) {
+    border-top-right-radius:20px;
+    border-top-left-radius: 20px;
+}
+
+.trans-det-1 {
+    background-color:lightblue;
+    border-radius:20px;
+}
+
+.transcription-detail-form {
+    background-color:lightblue;
+    padding:80px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+/* ORDER REVIEW */
+
+.order-item {
+    margin-bottom:20px;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.transcript-details-box {
+    flex: 1;
+    min-width:150px;
+}
+
+.upload-details-box {
+    flex:1;
+    min-width:150px;
+}
+
+.purchase-order-box {
+    flex:1;
+    min-width:150px;
+}
+
+/* TRANSCRIPT TRACKER AND SAVED FOR LATER */
+
+.transcript-tracker span, .my-cart span {
+    font-weight:bold;
+}
+
+.center {
+    text-align: center;
+}
+
+.space {
+    flex:1.2;
+}
+
+.file-div {
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #bfcbda;
+    border-radius:10px;
+    margin: 10px;
+    padding: 10px 0;
+}
+
+.opening {
+    padding:150px 200px;
+    margin-bottom:50px;
+    height:100vh;
+}
+
+.opening-icon {
+    background:url("../icons/typewriter.png") center;
+    background-size:contain;
+    height:100px;
+    width:100px;
+    margin:10px auto;
+}
+
+.ticket {
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 200px;
+}
+
+.box {
+    flex:1;
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content:space-between;
+    align-items: stretch;
+    border-radius: 30px;
+    min-width: 500px;
+    margin:0 30px 30px 0;
+}
+
+.id {
+    color:white;
+    text-align:center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.main {
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.left {
+    flex:1;
+}
+
+.left-details {
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.right {
+    flex:1;
+    text-align:center;
+}
+
+.right-details {
+    display:flex;
+    flex-flow:row nowrap;
+    align-items: center;
+    justify-content: center;
+    text-align:left;
+    margin-top:5%;
+}
+
+.full-details {
+    flex:2;
+}
+
+
+/* TRANSCRIPT TRACKER */
+
+.transcript-tracker.opening {
+    background:url("../img/pexels-photo-242400.jpeg") center;
+    background-size:cover;
+}
+
+.transcript-tracker.box {
+    border:5px solid #1b6d85;
+}
+
+.transcript-tracker.id {
+    background-color: #1b6d85;
+}
+
+.transcript-tracker.left-details-2 {
+    display:flex;
+    flex-flow:column nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.transcript-tracker.left-details-2 a {
+    margin-bottom:10px;
+}
+
+.transcript-tracker.right {
+    background-color:lightblue;
+}
+
+.transcript-tracker.review {
+    background-color:#1b6d85;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align:center;
+}
+
+.transcript-tracker.review h4 {
+        color:white;
+}
+
+#tracker-else {
+    padding: 10px 0;
+}
+
+
+
+/* REVIEW DETAILS */
+
+.review-content {
+    background-color:white;
+    margin: 5px 2px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding-top:10px;
+}
+
+.review-details {
+    display:flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-details p {
+    margin-right:5px;
+    font-size: 10px;
+}
+
+/* SAVED FOR LATER */
+
+.my-cart.opening {
+    background:url("../img/blue-clouds-day-fluffy-53594.jpeg") center;
+    background-size:cover;
+}
+
+.my-cart.box, .order-review.box {
+    border: 5px solid #28a1c5;
+}
+
+.my-cart.id,  .order-review.id {
+    background-color:#28a1c5;
+}
+
+.my-cart.left-details, .order-review.left-details {
+    margin-top:5px;
+}
+
+.my-cart.right, .order-review.right {
+    background-color:#a9d9e7;
+}
+
+.my-cart.paypal {
+    text-align:center;
+    background-color:#28a1c5;
+    padding: 10px 0;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    color:white;
+}
+
+/* ORDER REVIEW */
+.order-review.order-top {
+    padding:100px 0 50px 0;
+}

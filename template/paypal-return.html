@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="page-div">
+        <div class="container">
+            <h1>Your transcript is on it's way!</h1>
+            <h3>Congratulations, {% if client.user_name %}{{ client.user_name }}{% else %}{{ client.email }}{% endif %}!</h3>
+            <p>You can track the progress of your order </p>
+            
+        </div>
+    </div>
+{% endblock %}

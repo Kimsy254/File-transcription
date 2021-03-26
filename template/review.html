@@ -1,0 +1,15 @@
+{% load static %}
+{% load emoticons_tags %}
+
+<div class="review-content">
+
+    {% autoescape off %}
+        {{ review.comment|emoticons }}
+        <div class="review-details">
+            <p>Posted: {{ review.created_at|timesince }} ago</p>
+            {% if review.user == user or user.is_staff %}
+                <a href="{% url 'edit_review' detail.id review.id %}"><i class="fa fa-pencil-square-o"></i></a>
+            {% endif %}
+        </div>
+    {% endautoescape %}
+</div>

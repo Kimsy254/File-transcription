@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="page-div">
+        <div class="container">
+            <h1>You have cancelled your Transcript Order!</h1>
+            <h3>Where did we go wrong, {% if client.username %}{{ client.userbname }}{% else %}{{ client.email }}{% endif %}?</h3>
+            <p>try again</p>
+           
+        </div>
+    </div>
+{% endblock %}

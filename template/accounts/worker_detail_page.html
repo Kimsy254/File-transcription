@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="profile">
+  <img src="{% static 'images/profile-background-3.PNG' %}" alt="">
+  <div class="profile-box">
+    {% if worker.worker_profile_pic %}
+      <img src="{{ worker.worker_profile_pic.url }}" style="width:100px;height:100px;>
+    {% else %}
+      <img src="{% static 'images/login-avatar.PNG' %}" alt="">
+    {% endif %}
+    <div class="profile-details">
+      <h1>{{ worker.email }}</h1>
+      <br>
+      <p><i class="far fa-user"></i> Username: {{ worker.user.username }}</p>
+      <p><i class="far fa-envelope-open-text"></i> Email ID: {{ worker.email }}</p>
+      <a href="{% url 'accounts:worker_update' pk=user.pk %}"> <p class="edit-button">Edit Profile</p> </a>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="row">
+  <div class="col-md-3">
+    {% if worker.worker_profile_pic %}
+      <img src="{{ worker.worker_profile_pic.url }}">
+    {% else %}
+      <img src="" alt="">
+    {% endif %}
+  </div>
+  <div class="col-md-9">
+    <h1>{{ worker.user.username }}</h1>
+    <br>
+    <p>Name: {{ worker.name }}</p>
+    <p>Email Id: {{ worker.email }}</p>
+    <br>
+    <p> <a class="btn btn-primary" href="{% url 'accounts:worker_update' pk=user.pk %}">Edit profile</a> </p>
+  </div>
+</div>
+-->
+
+{% endblock %}
