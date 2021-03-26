@@ -25,7 +25,7 @@ SECRET_KEY = ')jsbq(7)t#zycf&&wcfog_hu8fl_ud_br&^qhql%x-3*q-o44$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tonyweb-2021.herokuapp.com']
 
 
 # Application definition
